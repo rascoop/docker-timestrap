@@ -2,14 +2,14 @@
 # docker build --tag timestrap:latest -f Dockerfile .
 # 
 # Run image, listen on port 8000, use db.sqlite3 from /database/ subfolder:
-# docker run -v ./database/:/timestrap/database/ -p 8000:8000 timestrap:latest
+# docker run -v ./database/:/timestrap/database/ -p 8000:8000 rascoop/timestrap:latest
 #
 # Run interactively, for debugging and development:
-# docker run -v ./database/:/timestrap/database/ -p 8000:8000 -i -t timestrap:latest bash
+# docker run -v ./database/:/timestrap/database/ -p 8000:8000 -i -t rascoop/timestrap:latest bash
 # 
 # Tag and push to Docker hub:
-# docker tag timestrap:latest stianovrevage/timestrap:latest
-# docker push stianovrevage/timestrap:latest
+# docker tag timestrap:latest rascoo/timestrap:latest
+# docker push rascoop/timestrap:latest
 
 
 # Static file build step
@@ -24,8 +24,8 @@ WORKDIR "/timestrap"
 RUN npm install --save node-sass@4.7.2
 
 RUN npm install && \
-    npm install -g gulp-cli && \
-    gulp build
+    npm install -g gulp-cli@1.4.0 && \
+    gulp build:production
 
 ### Remove some files no longer needed to reduce image size:
 RUN rm -rf /timestrap/node_modules/

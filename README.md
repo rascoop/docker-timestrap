@@ -8,7 +8,7 @@ Create a "timestrap-database" directory which will hold the data and run the Doc
 
 ```sh
 $ mkdir timestrap-database
-$ docker run -d -v ./timestrap-database/:/timestrap/database/ -p 8000:8000 stianovrevage/timestrap:latest
+$ docker run -d -v ./timestrap-database/:/timestrap/database/ -p 8000:8000 rascoop/timestrap:latest
 ```
 Wait a minute for server to start and go to **http://localhost:8000** . Default login is username **admin** and password **admin**.
 
