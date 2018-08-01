@@ -1,11 +1,13 @@
 cd /timestrap
+if [ ! -f database/db.sqlite3 ]; then
+    echo "Starting database migrations"
+    pipenv run python manage.py migrate --noinput
 
-echo "Starting database migrations"
-pipenv run python manage.py migrate --noinput
+    echo "Moving database file into database/ subfolder"
+    mkdir database/
+    mv -n db.sqlite3 database/
+fi
 
-echo "Moving database file into database/ subfolder"
-mkdir database/
-mv -n db.sqlite3 database/
 ln -s database/db.sqlite3 db.sqlite3
 
 echo "Starting server"
