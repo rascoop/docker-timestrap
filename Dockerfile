@@ -8,7 +8,7 @@
 # docker run -v ./database/:/timestrap/database/ -p 8000:8000 -i -t rascoop/timestrap:latest bash
 # 
 # Tag and push to Docker hub:
-# docker tag timestrap:latest rascoo/timestrap:latest
+# docker tag timestrap:latest rascoop/timestrap:latest
 # docker push rascoop/timestrap:latest
 
 
